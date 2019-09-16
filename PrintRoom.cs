@@ -4,27 +4,23 @@ using System;
 namespace museumet_1976
 {
     public class PrintRoom
-    {
+	{
         public static void PrintMuseum(int numbeOfRooms)
         {
             Console.Clear();
-
-            Random rand = new Random();        
-           
-
+            Random rand = new Random();
             int oldX = 0;
 			int oldLength = 0;
 
             for (int i = 0; i <= numbeOfRooms; i++){
                 int length = rand.Next(5, 12);
                 int height = rand.Next(2, 5);
-				int startX = rand.Next(0, length - 2);
+				int startX = rand.Next(1, length - 2);
 
                 PrintOneRoom(length, height, oldX, startX, oldLength);
-
 				oldX = startX;
-				oldLength = length;
-              
+
+				oldLength = length;              
             }
             Console.ReadKey();
         }
@@ -34,47 +30,69 @@ namespace museumet_1976
             PrintRow(length, startX, oldX, oldLength);
             PrintContent(length, height, startX);
       
-          //  PrintRow(length, startX);
         }
         static void PrintRow(int length, int startX, int oldX, int oldLength)
         {
             if (startX < oldX){
         		PrintFiller(startX, ' ');   
-                Console.Write('G');
+                Console.Write('+');
 				
-				// First part of the Row
+/* ------------------------------- First Part ------------------------------- */
+
 				int firstDiff = oldX - startX -1; 
 				PrintFiller(firstDiff, '-');				
                	Console.Write('+');
 
-				// Second part of the row. After the second room wall
-				int secondDiff = length - firstDiff - 1;
-				if (oldLength < length){
-					PrintFiller(oldLength, '-');
-				}else{
-					PrintFiller(secondDiff, '-');
-				}
-				Console.Write("+");
+/* ------------------------------- Second Part ------------------------------ */
 
-            }else{
-                for (int y = 0; y < startX; y++ ){
-                    Console.Write(oldX);
-                }   
-                    Console.Write('+');
+				int secondDiff = length - firstDiff - 1;
+
+				PrintFiller(secondDiff, '-');
+				Console.Write('+');
+
+				int thirdDiff = ((oldX + oldLength) - (startX + length)-1); 
+				if (thirdDiff != -1){
+					PrintFiller(thirdDiff, '-');
+					Console.Write('T');
+				}else{}
+
+/* ------------------------------- First Room ------------------------------- */
+
+			}else if (oldX == 0){
+				PrintFiller(startX, ' ');
+                Console.Write('+');					
 
 				PrintFiller(length, '-');
                 Console.Write('+');
-            }
-        }
-		static bool isPreviousRoomBigger(int startX, int length, int oldX, int oldLength)
-		{
-			int currentRoom = startX + length;
-			int previousRoom = oldX + oldLength;
+				
+			}else if (oldX < startX){
+				PrintFiller(oldX, ' ');
+                Console.Write('+');					
 
-			if (currentRoom < previousRoom){
-				return true;
+/* ------------------------------- First Part ------------------------------- */
+
+				int firstDiff = startX - oldX - 1;
+				
+				PrintFiller(firstDiff, '-');				
+               	Console.Write('+');
+
+/* ------------------------------- Second Part ------------------------------ */
+
+				int secondDiff = oldLength - firstDiff - 1;
+
+				PrintFiller(secondDiff, '-');
+				Console.Write('+');
+
+				int thirdDiff = ((startX + length) - (oldX + oldLength)-1); 
+				if (thirdDiff != -1){
+					PrintFiller(thirdDiff, '-');
+					Console.Write('G');
+				}else{}
+
+/* -------------------------------- Row Done -------------------------------- */
+			
 			}else{
-				return false;
+				Console.WriteLine("Detta var oväntat!");
 			}
 		}
 		static void PrintFiller(int amountOfTimes, char filler)
