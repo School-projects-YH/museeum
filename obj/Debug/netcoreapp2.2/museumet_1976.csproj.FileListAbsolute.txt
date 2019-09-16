@@ -1,0 +1,11 @@
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\obj\Debug\netcoreapp2.2\museumet_1976.csprojAssemblyReference.cache
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\obj\Debug\netcoreapp2.2\museumet_1976.csproj.CoreCompileInputs.cache
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\obj\Debug\netcoreapp2.2\museumet_1976.AssemblyInfoInputs.cache
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\obj\Debug\netcoreapp2.2\museumet_1976.AssemblyInfo.cs
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\bin\Debug\netcoreapp2.2\museumet_1976.deps.json
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\bin\Debug\netcoreapp2.2\museumet_1976.runtimeconfig.json
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\bin\Debug\netcoreapp2.2\museumet_1976.runtimeconfig.dev.json
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\bin\Debug\netcoreapp2.2\museumet_1976.dll
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\bin\Debug\netcoreapp2.2\museumet_1976.pdb
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\obj\Debug\netcoreapp2.2\museumet_1976.dll
+C:\Users\lukse\Desktop\Yrkeshögskolan\museumet_1976\obj\Debug\netcoreapp2.2\museumet_1976.pdb
