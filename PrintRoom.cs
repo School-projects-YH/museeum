@@ -10,53 +10,77 @@ namespace museumet_1976
             Console.Clear();
 
             Random rand = new Random();        
-            int oldHeight = 0;
+           
+
+            int oldX = 0;
+			int oldLength = 0;
 
             for (int i = 0; i <= numbeOfRooms; i++){
                 int length = rand.Next(5, 12);
                 int height = rand.Next(2, 5);
+				int startX = rand.Next(0, length);
 
-                if (i < 1){
-                    PrintFirstRoom(length, height);
-                }else{
-                    PrintOneRoom(length, height, oldHeight);
-                }
-                oldHeight = height;
+                PrintOneRoom(length, height, oldX, startX, oldLength);
+
+				oldX = startX;
+				oldLength = length;
+              
             }
             Console.ReadKey();
         }
-        static void PrintOneRoom(int length, int height, int oldHeight)
+        static void PrintOneRoom(int length, int height, int oldX, int startX, int oldLength)
         {  
-            Random rand = new Random(); 
-            int startX = rand.Next(0, length);
             
-            Console.SetCursorPosition(startX, oldHeight+2);
-            PrintRow(length);
-            Console.SetCursorPosition(startX, oldHeight+2);
-            PrintContent(length, height);
-          //  Console.SetCursorPosition(startX, oldHeight+height);
-            PrintRow(length);
+            PrintRow(length, startX, oldX, oldLength);
+            PrintContent(length, height, startX);
+      
+          //  PrintRow(length, startX);
         }
+        static void PrintRow(int length, int startX, int oldX, int oldLength)
+        {
+            if (startX < oldX ){
+                for (int y = 0; y < startX; y++ ){
+                    Console.Write(y);
+                }   
+                Console.Write('G');
 
-        static void PrintFirstRoom(int length, int height)
-        {
-            PrintRow(length);
-            PrintContent(length, height);
-            PrintRow(length);            
-        }
-        static void PrintRow(int length)
-        {
-            Console.Write('+');
-            
-            for (int i = 0; i < length; i++){
-                Console.Write('-');
+                for (int i = 0; i < (oldX - startX -1); i++){
+                    Console.Write('-');
+                }
+               	Console.Write('+');
+
+				if ((length + startX) < (oldLength + oldX)){
+					for (int i = 0; i < (length - (oldX - startX)); i++){
+						Console.Write('-');
+					}
+					Console.Write("Hej");
+					
+				}
+
+
+				
+
+
+            }else{
+                for (int y = 0; y < startX; y++ ){
+                    Console.Write(oldX);
+                }   
+                    Console.Write('+');
+
+                for (int i = 0; i < length; i++){
+                    Console.Write('-');
+                }
+                Console.Write('+');
             }
-            Console.Write('+');
         }
-        static void PrintContent(int length, int height)
+        static void PrintContent(int length, int height, int startX)
         {
             for (int i = 0; i <= height; i++){
-                Console.Write("\n|");
+                Console.Write('\n');
+                for (int y = 0; y < startX; y++ ){
+                    Console.Write(' ');
+                }        
+                    Console.Write('|');
 
                 for (int u = 0; u < length; u++){
                     Console.Write(' ');

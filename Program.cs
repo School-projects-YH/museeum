@@ -36,7 +36,7 @@ namespace museumet_1976
             string whereDoYouWantToGo = "Vart vill du ta vägen?: ";
 
 
-            PrintRoom.PrintMuseum(1);
+            PrintRoom.PrintMuseum(2);
 
             Console.WriteLine("Välkommen till LFT!");
             do{      
