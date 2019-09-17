@@ -33,7 +33,11 @@ namespace museumet_1976
         {  
             
             PrintRow(length, startX, oldX, oldLength);
+             PrintRow(length, startX, oldX, oldLength);
+              PrintRow(length, startX, oldX, oldLength);
             
+            PrintContent(length, height, startX);
+            PrintContent(length, height, startX);
             PrintContent(length, height, startX);
       
         }
