@@ -97,8 +97,6 @@ namespace museumet_1976
                     PrintFiller(secondDiff, '-');
                     }
                 }
-
-
             
             }else{ 
 				Console.WriteLine("Detta var oväntat!");

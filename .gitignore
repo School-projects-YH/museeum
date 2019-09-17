@@ -3,3 +3,7 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+bin/Debug/netcoreapp2.2/museumet_1976.dll
+bin/Debug/netcoreapp2.2/museumet_1976.pdb
+obj/Debug/netcoreapp2.2/museumet_1976.dll
+obj/Debug/netcoreapp2.2/museumet_1976.pdb
