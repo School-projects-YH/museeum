@@ -49,13 +49,13 @@ namespace museumet_1976
         		PrintFiller(startX, ' ');   
 
 				int firstDiff = oldX - startX -1; 
-				int secondDiff = length - firstDiff - 1;
+				int secondDiff = length - firstDiff - 1; // Fix if firstdiff == 0
 				int thirdDiff = ((oldX + oldLength) - (startX + length)-1); 
 
 				PrintFiller(firstDiff, '-');
                 PrintFiller(secondDiff, '-');
 
-                if (thirdDiff != -1){
+                if (thirdDiff >= 0){
 					PrintFiller(thirdDiff, '-');
 				}
 
@@ -64,29 +64,40 @@ namespace museumet_1976
 				PrintFiller(oldX, ' ');
 
 				int firstDiff = startX - oldX - 1;
-				int secondDiff = oldLength - firstDiff - 1;
+				int secondDiff = oldLength - firstDiff - 1; // Fix if firstdiff == 0
 				int thirdDiff = ((startX + length) - (oldX + oldLength)-1); 
 				
 				PrintFiller(firstDiff, '-');
 				PrintFiller(secondDiff, '-');
 
-				if (thirdDiff != -1){
+				if (thirdDiff >= 0){
 					PrintFiller(thirdDiff, '-');
 				}
-/* -------------------------------- Row Done -------------------------------- */
-			
+
 			}else if(oldX == startX){
             
                 PrintFiller(startX, ' ');
 
                 if (length < oldLength){
                     PrintFiller(length, '-');
+                    int secondDiff = oldLength-length-1;
+
+                    if (secondDiff >= 0){
+
+                    PrintFiller(secondDiff, '-');
+                    }
                 }else{
                     PrintFiller(oldLength, '-');
+                    int secondDiff = length-oldLength-1;
+                    if (secondDiff >= 0){
+
+                    PrintFiller(secondDiff, '-');
+                    }
                 }
 
+
             
-            }else{ //TODO If StartX and oldX is the same
+            }else{ 
 				Console.WriteLine("Detta var oväntat!");
 			}
 		}
