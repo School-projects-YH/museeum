@@ -273,7 +273,7 @@ namespace museumet_1976
                     break;
                     
                     case 6 :
-                    Console.WriteLine("Välkommen till ett rum (Rum 6).");
+                    Console.WriteLine("Välkommen till ett rum. (Rum 6).");
                     Console.WriteLine("Från detta rum kan du gå:");
                         Console.Write("[2] Höger \n[3] Neråt");
                         direction = Convert.ToInt32(Console.ReadLine()) - 1;
