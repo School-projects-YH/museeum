@@ -33,62 +33,40 @@ namespace museumet_1976
         }
         static void PrintRow(int length, int startX, int oldX, int oldLength)
         {
-            if (startX < oldX){
-        		PrintFiller(startX, ' ');   
-                Console.Write('+');
-				
-/* ------------------------------- First Part ------------------------------- */
-
-				int firstDiff = oldX - startX -1; 
-				PrintFiller(firstDiff, '-');				
-               	Console.Write('+');
-
-/* ------------------------------- Second Part ------------------------------ */
-
-				int secondDiff = length - firstDiff - 1;
-
-				PrintFiller(secondDiff, '-');
-				Console.Write('+');
-
-				int thirdDiff = ((oldX + oldLength) - (startX + length)-1); 
-				if (thirdDiff != -1){
-					PrintFiller(thirdDiff, '-');
-					Console.Write('T');
-				}else{}
-
-/* ------------------------------- First Room ------------------------------- */
-
-			}else if (oldX == 0){
+            if (oldX == 0){ // Första rummet
 				PrintFiller(startX, ' ');
-                Console.Write('+');					
 
 				PrintFiller(length, '-');
-                Console.Write('+');
+			
+            }else if (startX < oldX){
 				
+        		PrintFiller(startX, ' ');   
+
+				int firstDiff = oldX - startX -1; 
+				int secondDiff = length - firstDiff - 1;
+				int thirdDiff = ((oldX + oldLength) - (startX + length)-1); 
+
+				PrintFiller(firstDiff, '-');
+                PrintFiller(secondDiff, '-');
+
+                if (thirdDiff != -1){
+					PrintFiller(thirdDiff, '-');
+				}
+
+
 			}else if (oldX < startX){
 				PrintFiller(oldX, ' ');
-                Console.Write('+');					
-
-/* ------------------------------- First Part ------------------------------- */
 
 				int firstDiff = startX - oldX - 1;
-				
-				PrintFiller(firstDiff, '-');				
-               	Console.Write('+');
-
-/* ------------------------------- Second Part ------------------------------ */
-
 				int secondDiff = oldLength - firstDiff - 1;
-
-				PrintFiller(secondDiff, '-');
-				Console.Write('+');
-
 				int thirdDiff = ((startX + length) - (oldX + oldLength)-1); 
+				
+				PrintFiller(firstDiff, '-');
+				PrintFiller(secondDiff, '-');
+
 				if (thirdDiff != -1){
 					PrintFiller(thirdDiff, '-');
-					Console.Write('G');
-				}else{}
-
+				}
 /* -------------------------------- Row Done -------------------------------- */
 			
 			}else{
@@ -100,6 +78,7 @@ namespace museumet_1976
   			for (int i = 0; i < amountOfTimes; i++){
             	Console.Write(filler);
             }
+            Console.Write('+');
 		}
         static void PrintContent(int length, int height, int startX)
         {
@@ -118,6 +97,4 @@ namespace museumet_1976
             Console.Write('\n');
         }
     }
-
-
 }

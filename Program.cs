@@ -28,21 +28,35 @@ namespace museumet_1976
 
             int roomIndex = 1; // Mitten längst ner är lobbyn
             int direction;
+            int numberOfRoomsUntilExit = 0;
             
             bool exit = false;
+            bool isThereFire = false;
+
+            Random fireBreakout = new Random();
             
             string wrongCommand = "Du har valt ett felaktigt alternativ vänligen skriv in ett giltigt!";
             string wallExptected = "Aj! Du sprang in i en vägg";
             string whereDoYouWantToGo = "Vart vill du ta vägen?: ";
 
 
-            PrintRoom.PrintMuseum(2);
+           // PrintRoom.PrintMuseum(2);
 
             Console.WriteLine("Välkommen till LFT!");
-            do{      
+            do{  
+                    Console.Clear();
+                if (fireBreakout.Next(1,10) == 1){
+                    isThereFire = true;
+                }
+                if (isThereFire){
+                    numberOfRoomsUntilExit++;
+                    Console.WriteLine("UTRYM!! Det brinner");
+                    Console.ReadKey();
+                } 
+                           
                 switch  (roomIndex){                    
                     case 0 :
-                        Console.Clear();
+                        
 
                         Console.WriteLine("Det här är vattnets rum . Även kallat badhus av vissa individer");
                         Console.Write("\n \n [2] Höger \n [4] Uppåt \n\n");
@@ -343,7 +357,7 @@ namespace museumet_1976
                     break;
                 }
             }while(!exit);
-            Console.WriteLine("Hej då!");
+            Console.WriteLine("Hej då du klarade dig från branden genom att gå genom {0} rum", numberOfRoomsUntilExit);
         }
     }
 }
