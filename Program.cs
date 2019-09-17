@@ -32,6 +32,7 @@ namespace museumet_1976
             
             bool exit = false;
             bool isThereFire = false;
+            bool fireAlarm = true;
 
             Random fireBreakout = new Random();
             
@@ -50,13 +51,21 @@ namespace museumet_1976
                 }
                 if (isThereFire){
                     numberOfRoomsUntilExit++;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("UTRYM!! Det brinner");
-                    Console.ReadKey();
+                    
+                    for (int i = 0; i < 5; i++){
+                        Console.Beep(3500, 2000);
+                        Console.Beep(3000, 2000);
+
+                        if (Console.ReadKey() != null){
+                            break;
+                        }
+                    }
                 } 
                            
                 switch  (roomIndex){                    
-                    case 0 :
-                        
+                    case 0 :                        
 
                         Console.WriteLine("Det här är vattnets rum . Även kallat badhus av vissa individer");
                         Console.Write("\n \n [2] Höger \n [4] Uppåt \n\n");
@@ -92,7 +101,6 @@ namespace museumet_1976
                     break;
 
                     case 1 :
-                    Console.Clear();
 
                     Console.WriteLine("Det här rummet är en ganska tråkig lobby. Enbart cement med en liten recpetionsdisk");
                     Console.Write("\n [1] Vänster \n [2] Höger \n [3] Gå ut ur museeumet \n [4] Uppåt \n\n");
@@ -127,7 +135,6 @@ namespace museumet_1976
                     break;
 
                     case 2 :
-                        Console.Clear();
                         
                         Console.WriteLine("Här brukar Steffe hänga");
                         Console.Write("\n [1] Vänster \n [4] Uppåt \n\n");
@@ -163,7 +170,6 @@ namespace museumet_1976
                     break;
                     
                     case 3 :
-                        Console.Clear();
 
                         Console.WriteLine("Välkommen till TV rummet här går vi ignom TV'ns historia.");
                         Console.Write(" [2] Höger \n [3] Neråt \n [4] Uppåt \n\n");
@@ -199,7 +205,6 @@ namespace museumet_1976
                     break;
                     
                     case 4 :
-                        Console.Clear();
 
                         Console.WriteLine("Välkommen till Mat rummet här går vi ignom matens historia.");
                         Console.Write(" [1] Vänster \n [2] Höger \n [3] Neråt \n [4] Uppåt \n\n");
@@ -234,7 +239,6 @@ namespace museumet_1976
                     break;
                     
                     case 5 :
-                        Console.Clear();
 
                         Console.WriteLine("Välkommen till Kaffe rummet här går vi ignom kaffets historia.");
                         Console.Write(" [1] Vänster \n [3] Neråt \n [4] Uppåt \n\n");
@@ -358,6 +362,7 @@ namespace museumet_1976
                 }
             }while(!exit);
             Console.WriteLine("Hej då du klarade dig från branden genom att gå genom {0} rum", numberOfRoomsUntilExit);
+
         }
     }
 }
