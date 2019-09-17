@@ -33,12 +33,11 @@ namespace museumet_1976
         {  
             
             PrintRow(length, startX, oldX, oldLength);
-             PrintRow(length, startX, oldX, oldLength);
-              PrintRow(length, startX, oldX, oldLength);
+            
+         
             
             PrintContent(length, height, startX);
-            PrintContent(length, height, startX);
-            PrintContent(length, height, startX);
+           
       
         }
         static void PrintRow(int length, int startX, int oldX, int oldLength)

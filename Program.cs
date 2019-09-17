@@ -305,7 +305,7 @@ namespace museumet_1976
                     case 7 :
                     Console.WriteLine("Välkommen till konstiga rummet, här finns konstiga saker från världens alla hörn (Rum 7)");
                     Console.WriteLine("Från detta rum kan du gå:");
-                        Console.Write("[1] Vänster \n[2] Höger \n [3] Neråt");
+                        Console.Write("[1] Vänster \n[2] Höger \n[3] Neråt");
                     direction = Convert.ToInt32(Console.ReadLine()) - 1;
                     switch(direction){
                             case 0 : // vänster
@@ -334,7 +334,7 @@ namespace museumet_1976
                     case 8 :
                     Console.Write("Välkommen till Elkabel rummet, här bjuder vi på elkabelns fantastiska historia.(Rum 8) \n I ena hörnet har vi en kabel från 1970 talet helt i bly, fantastiskt!" );
                     Console.WriteLine("Från detta rum kan du gå:");
-                        Console.Write("[1] Vänster \n [3] Neråt");
+                        Console.Write("[1] Vänster \n[3] Neråt");
                         direction = Convert.ToInt32(Console.ReadLine()) - 1;
                     switch(direction){
                             case 0 : // vänster
