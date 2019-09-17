@@ -32,7 +32,7 @@ namespace museumet_1976
             
             bool exit = false;
             bool isThereFire = false;
-            bool fireAlarm = true;
+           
 
             Random fireBreakout = new Random();
             
@@ -41,7 +41,7 @@ namespace museumet_1976
             string whereDoYouWantToGo = "Vart vill du ta vägen?: ";
 
 
-           // PrintRoom.PrintMuseum(2);
+           PrintRoom.PrintMuseum(4);
 
             Console.WriteLine("Välkommen till LFT!");
             do{  

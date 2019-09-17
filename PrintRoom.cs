@@ -12,13 +12,18 @@ namespace museumet_1976
             int oldX = 0;
 			int oldLength = 0;
 
-            for (int i = 0; i <= numbeOfRooms; i++){
+            for (int i = 1; i <= numbeOfRooms; i++){
                 int length = rand.Next(5, 12);
                 int height = rand.Next(2, 5);
 				int startX = rand.Next(1, length - 2);
 
                 PrintOneRoom(length, height, oldX, startX, oldLength);
 				oldX = startX;
+                
+                if (numbeOfRooms == i){
+                    PrintFiller(startX, ' ');
+                    PrintFiller(length, '-');
+                }
 
 				oldLength = length;              
             }
@@ -28,6 +33,7 @@ namespace museumet_1976
         {  
             
             PrintRow(length, startX, oldX, oldLength);
+            
             PrintContent(length, height, startX);
       
         }
@@ -69,7 +75,18 @@ namespace museumet_1976
 				}
 /* -------------------------------- Row Done -------------------------------- */
 			
-			}else{
+			}else if(oldX == startX){
+            
+                PrintFiller(startX, ' ');
+
+                if (length < oldLength){
+                    PrintFiller(length, '-');
+                }else{
+                    PrintFiller(oldLength, '-');
+                }
+
+            
+            }else{ //TODO If StartX and oldX is the same
 				Console.WriteLine("Detta var oväntat!");
 			}
 		}
